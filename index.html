@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso de IA para Docentes | Ahorra Tiempo al Planear Clases</title>
+  <meta name="description" content="Descubre un programa práctico de IA para docentes que quieren ahorrar tiempo al crear clases, materiales, rúbricas y evaluaciones." />
+  <style>
+    :root {
+      --bg-1: #0f2747;
+      --bg-2: #173b73;
+      --bg-3: #0f766e;
+      --card-glass: rgba(255,255,255,0.10);
+      --card-border: rgba(255,255,255,0.16);
+      --text: #0f172a;
+      --white: #ffffff;
+      --muted-light: rgba(255,255,255,0.84);
+      --muted-dark: #475569;
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --soft: #f8fafc;
+      --line: #d7e3f1;
+      --bonus-bg: #effcfb;
+      --bonus-border: #99f6e4;
+      --summary-chip: #e0f2fe;
+      --summary-chip-text: #0f4c81;
+      --shadow-main: 0 24px 60px rgba(2, 6, 23, 0.28);
+      --shadow-btn: 0 18px 34px rgba(249, 115, 22, 0.34);
+      --max: 1080px;
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(20, 184, 166, 0.14), transparent 26%),
+        linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 58%, var(--bg-3) 100%);
+      min-height: 100vh;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrap {
+      width: min(100%, var(--max));
+    }
+
+    .main-card {
+      background: var(--card-glass);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-main);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .top-strip {
+      height: 6px;
+      background: linear-gradient(90deg, #38bdf8, #14b8a6);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      padding: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f97316;
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.55);
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 5vw, 4.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 10.5ch;
+    }
+
+    .subheadline {
+      margin: 0 0 24px;
+      max-width: 60ch;
+      color: var(--muted-light);
+      font-size: 1.08rem;
+      line-height: 1.58;
+    }
+
+    .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .bullets li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: rgba(255,255,255,0.96);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .check {
+      width: 26px;
+      height: 26px;
+      flex: 0 0 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #14b8a6, #0f766e);
+      color: white;
+      font-size: 0.92rem;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(20, 184, 166, 0.28);
+      margin-top: 1px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 30px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #fb923c);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      box-shadow: var(--shadow-btn);
+      transition: transform 0.18s ease, filter 0.18s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+      background: linear-gradient(135deg, var(--accent-hover), #f97316);
+    }
+
+    .mini-note {
+      margin-top: 14px;
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.74);
+    }
+
+    .trust-row {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .summary {
+      background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(241,245,249,0.99));
+      color: var(--text);
+      border-radius: 28px;
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary::before {
+      content: "";
+      position: absolute;
+      top: -70px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.14), transparent 65%);
+      pointer-events: none;
+    }
+
+    .summary-tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--summary-chip);
+      color: var(--summary-chip-text);
+      border: 1px solid #bae6fd;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .summary h2 {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 15ch;
+    }
+
+    .summary-text {
+      margin: 0 0 18px;
+      color: var(--muted-dark);
+      font-size: 0.98rem;
+      line-height: 1.58;
+    }
+
+    .summary-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-list li {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 13px 14px;
+      color: #1e293b;
+      font-size: 0.97rem;
+      line-height: 1.45;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+    }
+
+    .bonus {
+      margin-top: 16px;
+      border-radius: 18px;
+      padding: 15px 16px;
+      background: linear-gradient(135deg, var(--bonus-bg), #f0fdfa);
+      border: 1px dashed var(--bonus-border);
+      color: #115e59;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .bonus small {
+      display: block;
+      margin-top: 4px;
+      color: #0f766e;
+      font-weight: 600;
+    }
+
+    .footer {
+      padding: 0 36px 28px;
+      text-align: center;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.92);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-disclaimer {
+      color: rgba(255,255,255,0.72);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      .summary h2 {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px;
+      }
+
+      .content {
+        padding: 22px;
+        gap: 22px;
+      }
+
+      .summary {
+        padding: 20px;
+      }
+
+      .cta {
+        width: 100%;
+      }
+
+      .footer {
+        padding: 0 20px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="main-card">
+      <div class="top-strip"></div>
+
+      <div class="content">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            IA práctica para docentes
+          </div>
+
+          <h1>Ahorra tiempo al planear clases con IA para docentes</h1>
+
+          <p class="subheadline">
+            Descubre un programa práctico de IA para docentes que quieren crear actividades, materiales, rúbricas y evaluaciones de forma más rápida, clara y útil para su trabajo diario.
+          </p>
+
+          <ul class="bullets">
+            <li><span class="check">✓</span><span><strong>Qué es:</strong> un programa enfocado en el uso de inteligencia artificial aplicado a la docencia.</span></li>
+            <li><span class="check">✓</span><span><strong>Para quién es:</strong> docentes y formadores que quieren modernizar su trabajo y apoyarse mejor en la IA.</span></li>
+            <li><span class="check">✓</span><span><strong>Beneficio principal:</strong> ahorrar tiempo al crear clases, materiales y recursos sin empezar de cero cada vez.</span></li>
+          </ul>
+
+          <div class="btn-row">
+            <a class="cta" href="https://go.hotmart.com/E105153231V" target="_blank" rel="noopener noreferrer sponsored">Ver el curso y cómo funciona</a>
+          </div>
+
+          <div class="mini-note">Serás redirigido al sitio oficial del programa para ver los detalles completos.</div>
+
+          <div class="trust-row">
+            <span class="trust-chip">✔ Enfoque práctico</span>
+            <span class="trust-chip">✔ Pensado para docentes</span>
+            <span class="trust-chip">✔ Acceso digital</span>
+          </div>
+        </div>
+
+        <aside class="summary">
+          <div class="summary-tag">Programa práctico para docentes</div>
+          <h2>Lo que puedes lograr con este programa</h2>
+          <p class="summary-text">
+            Explora una formación orientada a docentes que quieren incorporar inteligencia artificial de forma útil, práctica y aplicable a su trabajo diario.
+          </p>
+
+          <ul class="summary-list">
+            <li>Ahorrar tiempo al crear planeamientos, materiales y recursos educativos</li>
+            <li>Diseñar actividades, evaluaciones y apoyos didácticos con ayuda de IA</li>
+            <li>Aprender a usar herramientas como ChatGPT con un enfoque más claro para docencia</li>
+          </ul>
+
+          <div class="bonus">
+            Incluye certificado de finalización del programa.
+            <small>Además, recibirás una guía adicional con prompts prácticos como bono complementario.</small>
+          </div>
+        </aside>
+      </div>
+
+      <div class="footer">
+        <div class="footer-links">
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="terminos.html">Términos</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="footer-disclaimer">
+          Esta página contiene enlaces de afiliado. Si realizas una compra, podría recibir una comisión sin costo adicional para ti.
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
