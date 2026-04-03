@@ -1,114 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recupera tus Fines de Semana | IA para Docentes</title>
-  <style>
-    :root {
-      --bg-1: #0f2747; --bg-2: #173b73; --bg-3: #0f766e;
-      --card-glass: rgba(255,255,255,0.10); --card-border: rgba(255,255,255,0.16);
-      --text: #0f172a; --white: #ffffff; --accent: #f97316;
-      --radius-xl: 32px; --max: 1080px;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--white); background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 58%, var(--bg-3) 100%);
-      min-height: 100vh; padding: 20px; display: flex; align-items: center; justify-content: center;
-    }
-    .wrap { width: min(100%, var(--max)); }
-    .main-card { background: var(--card-glass); border: 1px solid var(--card-border); border-radius: var(--radius-xl); backdrop-filter: blur(12px); overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
-    .top-strip { height: 6px; background: linear-gradient(90deg, #f97316, #14b8a6); }
-    .content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; padding: 40px; align-items: start; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: rgba(249,115,22,0.2); border: 1px solid var(--accent); font-size: 0.85rem; font-weight: 700; color: #fb923c; margin-bottom: 20px; }
-    h1 { margin: 0 0 15px; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; }
-    .subheadline { font-size: 1.1rem; line-height: 1.5; margin-bottom: 25px; opacity: 0.9; color: #e2e8f0; }
-    .author-box { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 4px solid var(--accent); }
-    .author-name { font-weight: 800; color: var(--accent); font-size: 1.1rem; }
-    .price-box { margin-bottom: 15px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
-    .old-price { text-decoration: line-through; opacity: 0.6; font-size: 1rem; }
-    .new-price { font-size: 2.2rem; font-weight: 900; color: #fff; display: block; margin-top: 5px;}
-    
-    /* BLOQUE DE REGALO RESALTADO */
-    .gift-notice { margin-bottom: 20px; padding: 18px; background: #f97316; border-radius: 15px; color: white; font-size: 1rem; line-height: 1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 2px solid #fb923c; }
-    .gift-notice strong { font-size: 1.1rem; text-transform: uppercase; display: block; margin-bottom: 5px; color: #fff; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docente... ¡Recupera tus fines de semana con IA!</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #0f172a; color: white; line-height: 1.6; }
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+        
+        /* Encabezado Principal */
+        .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 50px 20px; text-align: center; border-radius: 0 0 50px 50px; border-bottom: 4px solid #e67e22; }
+        .badge { background: #e67e22; color: white; padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; text-transform: uppercase; }
+        h1 { font-size: 2.8em; margin: 20px 0; line-height: 1.1; }
+        .highlight { color: #e67e22; }
+        
+        /* Caja de Respaldo ALLAN - INA */
+        .instructor-box { background: rgba(255, 255, 255, 0.05); border-left: 5px solid #e67e22; padding: 25px; margin: 30px auto; max-width: 700px; text-align: left; border-radius: 0 15px 15px 0; }
+        .instructor-box h2 { margin: 0; color: #e67e22; font-size: 1.4em; }
+        .instructor-box p { margin: 5px 0 0 0; font-size: 1em; opacity: 0.9; }
 
-    .cta { display: block; text-align: center; padding: 20px; border-radius: 18px; background: linear-gradient(135deg, #14b8a6, #0d9488); color: white; text-decoration: none; font-size: 1.3rem; font-weight: 900; box-shadow: 0 10px 30px rgba(20,184,166,0.4); transition: 0.2s; cursor: pointer; border: none; width: 100%; }
-    .cta:hover { transform: translateY(-3px); filter: brightness(1.1); }
-    
-    .summary { background: white; color: var(--text); padding: 30px; border-radius: 24px; }
-    .summary h2 { margin-top: 0; font-size: 1.3rem; color: var(--bg-1); }
-    .summary-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-    .summary-list li { padding: 12px; background: #f1f5f9; border-radius: 10px; font-size: 0.9rem; font-weight: 600; color: #334155; border-left: 3px solid #14b8a6; }
-    .bonus-tag { margin-top: 15px; background: #fff7ed; border: 1px dashed #f97316; padding: 15px; border-radius: 10px; color: #9a3412; font-size: 0.85rem; font-weight: 800; line-height: 1.4; }
-    .footer { padding: 20px; text-align: center; font-size: 0.8rem; opacity: 0.7; border-top: 1px solid var(--card-border); }
-    .footer a { color: white; margin: 0 10px; text-decoration: none; cursor: pointer; }
-    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; padding: 20px; overflow-y: auto; color: #334155; }
-    .modal-content { background: white; padding: 30px; border-radius: 20px; max-width: 600px; margin: auto; position: relative; }
-    .close-modal { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; color: #000; }
-    @media (max-width: 850px) { .content { grid-template-columns: 1fr; } }
-  </style>
+        /* Sección de Precio y Botón */
+        .cta-section { text-align: center; padding: 40px 20px; }
+        .old-price { text-decoration: line-through; opacity: 0.5; font-size: 1.2em; }
+        .new-price { font-size: 3em; font-weight: bold; margin: 10px 0; color: white; }
+        .mexico-note { font-size: 0.9em; opacity: 0.8; margin-bottom: 25px; }
+        
+        .btn-link { display: inline-block; background: #e67e22; color: white; padding: 22px 45px; font-size: 1.6em; font-weight: bold; text-decoration: none; border-radius: 12px; transition: 0.3s; box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3); }
+        .btn-link:hover { transform: translateY(-3px); background: #d35400; box-shadow: 0 15px 25px rgba(230, 126, 34, 0.4); }
+        .secure-note { font-size: 0.8em; margin-top: 15px; opacity: 0.6; display: block; }
+
+        /* Caja de Regalo */
+        .bonus-card { border: 2px dashed #e67e22; background: rgba(230, 126, 34, 0.1); padding: 20px; border-radius: 15px; margin: 40px auto; max-width: 600px; }
+        .bonus-card h3 { margin: 0; color: #e67e22; }
+
+        /* Footer Legal para Google */
+        .footer-legal { margin-top: 60px; padding: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.8em; opacity: 0.7; }
+        .footer-legal a { color: white; margin: 0 10px; text-decoration: none; }
+        
+        @media (max-width: 600px) { h1 { font-size: 2em; } .new-price { font-size: 2.2em; } }
+    </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="main-card">
-      <div class="top-strip"></div>
-      <div class="content">
-        <div>
-          <div class="eyebrow">CONTENIDO EXCLUSIVO PARA DOCENTES</div>
-          <h1>Recupera tus fines de semana con IA Aplicada</h1>
-          <p class="subheadline">Aprende a automatizar tus planeamientos y tareas administrativas para volver a disfrutar de tu tiempo libre.</p>
-          <div class="author-box">
-            <div class="author-info">
-              <p>Recomendado por:</p>
-              <p class="author-name">Prof. Allan Alfaro (INA Costa Rica)</p>
-              <p>Especialista con más de 20 años en docencia.</p>
-            </div>
-          </div>
-          
-          <div class="price-box">
-            <span class="old-price">Precio regular: USD $97.00</span>
-            <span class="new-price">Hoy: USD $49.00*</span>
-            <p style="color: #fb923c; font-weight: 800; margin: 5px 0;">(Aprox. $1,000 Pesos Mexicanos)</p>
-          </div>
 
-          <div class="gift-notice">
-            <strong>🎁 ¡BONO EXCLUSIVO DE MI PARTE!</strong>
-            Para recibir el PDF con 50 Prompts, envía tu comprobante de pago a: <strong>aalfarotcr44@gmail.com</strong>
-          </div>
+    <div class="hero">
+        <span class="badge">Contenido Exclusivo para Docentes</span>
+        <h1>Docente... <br><span class="highlight">¡Recupera tus fines de semana con IA Aplicada!</span></h1>
+        <p>Automatiza tus planeamientos y tareas administrativas. Vuelve a disfrutar de tu tiempo libre.</p>
+        
+        <div class="instructor-box">
+            <p><strong>Recomendado por:</strong></p>
+            <h2>Prof. Allan Alfaro (INA Costa Rica)</h2>
+            <p>Especialista con más de 20 años en docencia técnica e idiomas.</p>
+        </div>
+    </div>
 
-          <a href="https://go.hotmart.com/H105205095M?ap=dca8" class="cta">¡ACCEDER POR USD $49!</a>
+    <div class="container">
+        <div class="cta-section">
+            <p class="old-price">Precio Regular: USD $97.00</p>
+            <div class="new-price">Hoy: USD $49.00*</div>
+            <p class="mexico-note">(*Aproximadamente $1,071 MXN - Se cobra en tu moneda local automáticamente)</p>
+            
+            <a href="https://go.hotmart.com/H105205095M" class="btn-link">¡SÍ, QUIERO EMPEZAR AHORA!</a>
+            <span class="secure-note">🔒 Serás redirigido a la plataforma oficial de Hotmart para realizar tu pago seguro.</span>
         </div>
 
-        <aside class="summary">
-          <h2>¿Qué vas a lograr?</h2>
-          <ul class="summary-list">
-            <li>Dominar la Inteligencia Artificial para materiales didácticos.</li>
-            <li>Automatizar tareas administrativas tediosas.</li>
-            <li>Crear recursos visuales en segundos.</li>
-            <li>Uso práctico de la IA en el aula real.</li>
-          </ul>
-          <div class="bonus-tag">
-            🎁 INCLUYE REGALO:<br>
-            PDF con 50 Prompts listos para copiar y usar en tus clases.
-          </div>
-        </aside>
-      </div>
-      <footer class="footer">
-        <a onclick="showModal('privacidad')">Privacidad</a> | <a onclick="showModal('terminos')">Términos</a> | <a onclick="showModal('contacto')">Contacto</a>
-      </footer>
-    </section>
-  </main>
-  <div id="legalModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal()">&times;</span><div id="modalBody"></div></div></div>
-  <script>
-    const legalContent = {
-      privacidad: "<h2>Privacidad</h2><p>Tus datos están seguros y no se comparten con terceros.</p>",
-      terminos: "<h2>Términos</h2><p>Producto digital con acceso inmediato tras el pago.</p>",
-      contacto: "<h2>Contacto</h2><p>¿Dudas? Escríbeme a: <strong>aalfarotcr44@gmail.com</strong></p>"
-    };
-    function showModal(type) { document.getElementById('modalBody').innerHTML = legalContent[type]; document.getElementById('legalModal').style.display = 'block'; }
-    function closeModal() { document.getElementById('legalModal').style.display = 'none'; }
-  </script>
+        <div class="bonus-card">
+            <h3>🎁 INCLUYE REGALO EXCLUSIVO:</h3>
+            <p>Al inscribirte hoy, te envío mi PDF personal con <strong>50 Prompts listos para copiar y usar</strong> en tus clases. Cortesía del Prof. Allan Alfaro.</p>
+        </div>
+
+        <div class="footer-legal">
+            <p>Este sitio no es parte del sitio web de Facebook o Facebook Inc. Además, este sitio NO está respaldado por Facebook de ninguna manera. FACEBOOK es una marca registrada de FACEBOOK, Inc.</p>
+            <p>
+                <a href="#">Política de Privacidad</a> | 
+                <a href="#">Términos y Condiciones</a> | 
+                <a href="#">Contacto</a>
+            </p>
+            <p>© 2026 IA para Docentes - Recomendado por Prof. Allan Alfaro (Alajuela, C.R.)</p>
+        </div>
+    </div>
+
 </body>
 </html>
