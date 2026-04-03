@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IA para Docentes | Recomendación Prof. Allan (INA)</title>
+  <title>IA para Docentes | Recomendación Prof. Allan Alfaro (INA)</title>
   <style>
     :root {
       --bg-1: #0f2747; --bg-2: #173b73; --bg-3: #0f766e;
@@ -13,7 +13,7 @@
     }
     * { box-sizing: border-box; }
     body {
-      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; font-family: Arial, sans-serif;
       color: var(--white); background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 58%, var(--bg-3) 100%);
       min-height: 100vh; padding: 20px; display: flex; align-items: center; justify-content: center;
     }
@@ -22,26 +22,24 @@
     .top-strip { height: 6px; background: linear-gradient(90deg, #f97316, #14b8a6); }
     .content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; padding: 40px; align-items: start; }
     .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: rgba(249,115,22,0.2); border: 1px solid var(--accent); font-size: 0.85rem; font-weight: 700; color: #fb923c; margin-bottom: 20px; }
-    h1 { margin: 0 0 20px; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -0.03em; }
+    h1 { margin: 0 0 20px; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; }
     .author-box { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 4px solid var(--accent); }
-    .author-info p { margin: 0; font-size: 0.95rem; line-height: 1.4; }
-    .author-name { font-weight: 800; color: var(--accent); }
+    .author-name { font-weight: 800; color: var(--accent); font-size: 1.1rem; }
     .bullets { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 15px; }
     .bullets li { display: flex; gap: 12px; font-size: 1.05rem; }
     .check { color: #14b8a6; font-weight: 900; }
-    .price-box { margin-bottom: 25px; }
-    .old-price { text-decoration: line-through; opacity: 0.6; font-size: 1.1rem; }
-    .new-price { font-size: 2.5rem; font-weight: 900; color: #fff; display: block; margin-top: 5px;}
-    .cta { display: block; text-align: center; padding: 22px; border-radius: 18px; background: linear-gradient(135deg, var(--accent), #ea580c); color: white; text-decoration: none; font-size: 1.3rem; font-weight: 900; box-shadow: 0 10px 30px rgba(249,115,22,0.4); transition: 0.2s; cursor: pointer; }
-    .cta:hover { transform: scale(1.02); filter: brightness(1.1); }
+    .price-box { margin-bottom: 25px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
+    .old-price { text-decoration: line-through; opacity: 0.6; font-size: 1rem; }
+    .new-price { font-size: 2.2rem; font-weight: 900; color: #fff; display: block; margin-top: 5px;}
+    .cta { display: block; text-align: center; padding: 20px; border-radius: 18px; background: linear-gradient(135deg, var(--accent), #ea580c); color: white; text-decoration: none; font-size: 1.2rem; font-weight: 900; box-shadow: 0 10px 30px rgba(249,115,22,0.4); transition: 0.2s; cursor: pointer; }
     .summary { background: white; color: var(--text); padding: 30px; border-radius: 24px; }
-    .summary h2 { margin-top: 0; font-size: 1.4rem; color: var(--bg-1); }
+    .summary h2 { margin-top: 0; font-size: 1.3rem; color: var(--bg-1); }
     .summary-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-    .summary-list li { padding: 12px; background: #f1f5f9; border-radius: 10px; font-size: 0.95rem; font-weight: 600; color: #334155; border-left: 3px solid #14b8a6; }
+    .summary-list li { padding: 12px; background: #f1f5f9; border-radius: 10px; font-size: 0.9rem; font-weight: 600; color: #334155; border-left: 3px solid #14b8a6; }
     .footer { padding: 20px; text-align: center; font-size: 0.8rem; opacity: 0.7; border-top: 1px solid var(--card-border); }
     .footer a { color: white; margin: 0 10px; text-decoration: none; cursor: pointer; }
-    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; padding: 40px; overflow-y: auto; color: #334155; }
-    .modal-content { background: white; padding: 30px; border-radius: 20px; max-width: 800px; margin: auto; position: relative; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; padding: 20px; overflow-y: auto; color: #334155; }
+    .modal-content { background: white; padding: 30px; border-radius: 20px; max-width: 600px; margin: auto; position: relative; }
     .close-modal { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; color: #000; }
     @media (max-width: 850px) { .content { grid-template-columns: 1fr; } }
   </style>
@@ -53,75 +51,50 @@
       <div class="content">
         <div>
           <div class="eyebrow">CONTENIDO EXCLUSIVO PARA DOCENTES</div>
-          <h1>Recupera tus fines de semana con IA Aplicada</h1>
-          
+          <h1>Automatiza tus clases y ahorra tiempo real con IA</h1>
           <div class="author-box">
             <div class="author-info">
               <p>Recomendado por:</p>
-              <p class="author-name">Prof. Allan R. (INA Costa Rica)</p>
-              <p>Especialista con +20 años de experiencia pedagógica.</p>
+              <p class="author-name">Prof. Allan Alfaro (INA Costa Rica)</p>
+              <p>Especialista con más de 20 años en docencia.</p>
             </div>
           </div>
-
           <ul class="bullets">
-            <li><span class="check">✓</span> <span>Planeamientos completos en menos de 10 minutos.</span></li>
+            <li><span class="check">✓</span> <span>Planeamientos completos en minutos.</span></li>
             <li><span class="check">✓</span> <span>Diseño de rúbricas y exámenes automáticos.</span></li>
-            <li><span class="check">✓</span> <span>+50 Prompts listos para copiar y usar en clase.</span></li>
+            <li><span class="check">✓</span> <span>+50 Prompts listos para copiar y usar.</span></li>
           </ul>
-
           <div class="price-box">
             <span class="old-price">Precio regular: USD $97.00</span>
             <span class="new-price">Hoy: USD $49.00*</span>
             <p style="color: #fb923c; font-weight: 800; margin: 5px 0;">(Aprox. $1,000 Pesos Mexicanos)</p>
           </div>
-
-          <a href="https://go.hotmart.com/H105205095M?ap=dca8" class="cta">¡ADQUIRIR POR USD $49!</a>
-          <p style="text-align:center; font-size: 0.75rem; margin-top: 10px; opacity: 0.6;">*El precio final en pesos depende de impuestos locales.</p>
+          <a href="https://go.hotmart.com/H105205095M?ap=dca8" class="cta">¡ACCEDER POR USD $49!</a>
         </div>
-
         <aside class="summary">
           <h2>¿Qué vas a lograr?</h2>
           <ul class="summary-list">
             <li>Dominar ChatGPT para crear materiales didácticos.</li>
-            <li>Automatizar tareas administrativas hueras.</li>
+            <li>Automatizar tareas administrativas tediosas.</li>
             <li>Crear diapositivas y recursos visuales con un clic.</li>
-            <li>Uso ético y práctico de la IA en el aula.</li>
+            <li>Uso práctico de la IA aplicado al aula real.</li>
           </ul>
-          <div style="margin-top:20px; font-size:0.8rem; text-align:center; font-weight:700; color:#64748b;">
-            🛡️ 7 Días de Garantía Hotmart®
-          </div>
         </aside>
       </div>
-
       <footer class="footer">
-        <a onclick="showModal('privacidad')">Privacidad</a> | 
-        <a onclick="showModal('terminos')">Términos</a> | 
-        <a onclick="showModal('contacto')">Contacto</a>
-        <p style="margin-top:15px;">Este sitio no forma parte de Google ni Meta. Esta página contiene enlaces de afiliado.</p>
+        <a onclick="showModal('privacidad')">Privacidad</a> | <a onclick="showModal('terminos')">Términos</a> | <a onclick="showModal('contacto')">Contacto</a>
       </footer>
     </section>
   </main>
-
-  <div id="legalModal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <div id="modalBody"></div>
-    </div>
-  </div>
-
+  <div id="legalModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal()">&times;</span><div id="modalBody"></div></div></div>
   <script>
     const legalContent = {
-      privacidad: "<h2>Política de Privacidad</h2><p>Tus datos están protegidos. Esta página no recolecta información personal para terceros. Los pagos se procesan de forma segura a través de Hotmart®.</p>",
-      terminos: "<h2>Términos de Uso</h2><p>Al adquirir este programa, accedes a una formación digital recomendada por un profesional independiente. No se garantizan resultados económicos, solo pedagógicos.</p>",
-      contacto: "<h2>Contacto</h2><p>¿Dudas? Puedes contactar al equipo de soporte directamente a través del enlace de pago de Hotmart o escribir a soporte@allanprof.com</p>"
+      privacidad: "<h2>Privacidad</h2><p>Tus datos están seguros.</p>",
+      terminos: "<h2>Términos</h2><p>Acceso digital tras el pago en Hotmart.</p>",
+      contacto: "<h2>Contacto</h2><p>Soporte en soporte@allanprof.com o vía Hotmart.</p>"
     };
-    function showModal(type) {
-      document.getElementById('modalBody').innerHTML = legalContent[type];
-      document.getElementById('legalModal').style.display = 'block';
-    }
-    function closeModal() {
-      document.getElementById('legalModal').style.display = 'none';
-    }
+    function showModal(type) { document.getElementById('modalBody').innerHTML = legalContent[type]; document.getElementById('legalModal').style.display = 'block'; }
+    function closeModal() { document.getElementById('legalModal').style.display = 'none'; }
   </script>
 </body>
 </html>
