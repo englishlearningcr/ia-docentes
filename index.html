@@ -26,14 +26,17 @@
     .subheadline { font-size: 1.1rem; line-height: 1.5; margin-bottom: 25px; opacity: 0.9; color: #e2e8f0; }
     .author-box { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 4px solid var(--accent); }
     .author-name { font-weight: 800; color: var(--accent); font-size: 1.1rem; }
-    .bullets { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 12px; }
-    .bullets li { display: flex; gap: 12px; font-size: 1.05rem; }
-    .check { color: #14b8a6; font-weight: 900; }
-    .price-box { margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
+    .price-box { margin-bottom: 15px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
     .old-price { text-decoration: line-through; opacity: 0.6; font-size: 1rem; }
     .new-price { font-size: 2.2rem; font-weight: 900; color: #fff; display: block; margin-top: 5px;}
-    .cta { display: block; text-align: center; padding: 20px; border-radius: 18px; background: linear-gradient(135deg, var(--accent), #ea580c); color: white; text-decoration: none; font-size: 1.2rem; font-weight: 900; box-shadow: 0 10px 30px rgba(249,115,22,0.4); transition: 0.2s; cursor: pointer; }
-    .gift-notice { margin-top: 15px; padding: 15px; background: rgba(20, 184, 166, 0.15); border: 1px solid #14b8a6; border-radius: 12px; font-size: 0.9rem; line-height: 1.4; color: #ccfbf1; }
+    
+    /* BLOQUE DE REGALO RESALTADO */
+    .gift-notice { margin-bottom: 20px; padding: 18px; background: #f97316; border-radius: 15px; color: white; font-size: 1rem; line-height: 1.4; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 2px solid #fb923c; }
+    .gift-notice strong { font-size: 1.1rem; text-transform: uppercase; display: block; margin-bottom: 5px; color: #fff; }
+
+    .cta { display: block; text-align: center; padding: 20px; border-radius: 18px; background: linear-gradient(135deg, #14b8a6, #0d9488); color: white; text-decoration: none; font-size: 1.3rem; font-weight: 900; box-shadow: 0 10px 30px rgba(20,184,166,0.4); transition: 0.2s; cursor: pointer; border: none; width: 100%; }
+    .cta:hover { transform: translateY(-3px); filter: brightness(1.1); }
+    
     .summary { background: white; color: var(--text); padding: 30px; border-radius: 24px; }
     .summary h2 { margin-top: 0; font-size: 1.3rem; color: var(--bg-1); }
     .summary-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
@@ -55,7 +58,7 @@
         <div>
           <div class="eyebrow">CONTENIDO EXCLUSIVO PARA DOCENTES</div>
           <h1>Recupera tus fines de semana con IA Aplicada</h1>
-          <p class="subheadline">Aprende a automatizar tus planeamientos y tareas administrativas con Inteligencia Artificial para volver a disfrutar de tu tiempo libre.</p>
+          <p class="subheadline">Aprende a automatizar tus planeamientos y tareas administrativas para volver a disfrutar de tu tiempo libre.</p>
           <div class="author-box">
             <div class="author-info">
               <p>Recomendado por:</p>
@@ -63,33 +66,31 @@
               <p>Especialista con más de 20 años en docencia.</p>
             </div>
           </div>
-          <ul class="bullets">
-            <li><span class="check">✓</span> <span>Planeamientos completos en minutos.</span></li>
-            <li><span class="check">✓</span> <span>Diseño de rúbricas y exámenes automáticos.</span></li>
-            <li><span class="check">✓</span> <span>Acceso de por vida al material.</span></li>
-          </ul>
+          
           <div class="price-box">
             <span class="old-price">Precio regular: USD $97.00</span>
             <span class="new-price">Hoy: USD $49.00*</span>
             <p style="color: #fb923c; font-weight: 800; margin: 5px 0;">(Aprox. $1,000 Pesos Mexicanos)</p>
           </div>
-          <a href="https://go.hotmart.com/H105205095M?ap=dca8" class="cta">¡ACCEDER POR USD $49!</a>
-          
+
           <div class="gift-notice">
-            <strong>🎁 ¡RECLAMA TU REGALO!</strong><br>
-            Una vez realizado tu pago (Tarjeta, PayPal u OXXO), envía tu comprobante a <strong>aalfarotcr44@gmail.com</strong> para enviarte de inmediato tu <strong>PDF de 50 Prompts Exclusivos</strong>.
+            <strong>🎁 ¡BONO EXCLUSIVO DE MI PARTE!</strong>
+            Para recibir el PDF con 50 Prompts, envía tu comprobante de pago a: <strong>aalfarotcr44@gmail.com</strong>
           </div>
+
+          <a href="https://go.hotmart.com/H105205095M?ap=dca8" class="cta">¡ACCEDER POR USD $49!</a>
         </div>
+
         <aside class="summary">
           <h2>¿Qué vas a lograr?</h2>
           <ul class="summary-list">
-            <li>Dominar la Inteligencia Artificial para crear materiales didácticos.</li>
+            <li>Dominar la Inteligencia Artificial para materiales didácticos.</li>
             <li>Automatizar tareas administrativas tediosas.</li>
-            <li>Crear diapositivas y recursos visuales en segundos.</li>
-            <li>Uso práctico de la IA aplicado al aula real.</li>
+            <li>Crear recursos visuales en segundos.</li>
+            <li>Uso práctico de la IA en el aula real.</li>
           </ul>
           <div class="bonus-tag">
-            🎁 REGALO EXTRA DE MI PARTE:<br>
+            🎁 INCLUYE REGALO:<br>
             PDF con 50 Prompts listos para copiar y usar en tus clases.
           </div>
         </aside>
