@@ -36,6 +36,10 @@
     .summary h2 { margin-top: 0; font-size: 1.3rem; color: var(--bg-1); }
     .summary-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
     .summary-list li { padding: 12px; background: #f1f5f9; border-radius: 10px; font-size: 0.9rem; font-weight: 600; color: #334155; border-left: 3px solid #14b8a6; }
+    
+    /* ESTILO PARA EL BONO */
+    .bonus-tag { margin-top: 15px; background: #fff7ed; border: 1px dashed #f97316; padding: 12px; border-radius: 10px; color: #9a3412; font-size: 0.85rem; font-weight: 700; }
+
     .footer { padding: 20px; text-align: center; font-size: 0.8rem; opacity: 0.7; border-top: 1px solid var(--card-border); }
     .footer a { color: white; margin: 0 10px; text-decoration: none; cursor: pointer; }
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; padding: 20px; overflow-y: auto; color: #334155; }
@@ -62,7 +66,7 @@
           <ul class="bullets">
             <li><span class="check">✓</span> <span>Planeamientos completos en minutos.</span></li>
             <li><span class="check">✓</span> <span>Diseño de rúbricas y exámenes automáticos.</span></li>
-            <li><span class="check">✓</span> <span>+50 Prompts listos para copiar y usar.</span></li>
+            <li><span class="check">✓</span> <span>Acceso de por vida al material.</span></li>
           </ul>
           <div class="price-box">
             <span class="old-price">Precio regular: USD $97.00</span>
@@ -77,8 +81,14 @@
             <li>Dominar ChatGPT para crear materiales didácticos.</li>
             <li>Automatizar tareas administrativas tediosas.</li>
             <li>Crear diapositivas y recursos visuales con un clic.</li>
-            <li>Uso práctico de la IA aplicado al aula real.</li>
           </ul>
+          <div class="bonus-tag">
+            🎁 REGALO EXTRA DE MI PARTE:<br>
+            PDF con 50 Prompts listos para copiar y usar en tus clases.
+          </div>
+          <div style="margin-top:20px; font-size:0.8rem; text-align:center; font-weight:700; color:#64748b;">
+            🛡️ Garantía de 7 días por Hotmart®
+          </div>
         </aside>
       </div>
       <footer class="footer">
@@ -89,9 +99,9 @@
   <div id="legalModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal()">&times;</span><div id="modalBody"></div></div></div>
   <script>
     const legalContent = {
-      privacidad: "<h2>Privacidad</h2><p>Tus datos están seguros.</p>",
-      terminos: "<h2>Términos</h2><p>Acceso digital tras el pago en Hotmart.</p>",
-      contacto: "<h2>Contacto</h2><p>Soporte en soporte@allanprof.com o vía Hotmart.</p>"
+      privacidad: "<h2>Privacidad</h2><p>Tus datos están seguros y no se comparten con terceros.</p>",
+      terminos: "<h2>Términos</h2><p>Producto digital con acceso inmediato tras el pago.</p>",
+      contacto: "<h2>Contacto</h2><p>¿Dudas? Escríbeme a: <strong>aalfarotcr44@gmail.com</strong></p>"
     };
     function showModal(type) { document.getElementById('modalBody').innerHTML = legalContent[type]; document.getElementById('legalModal').style.display = 'block'; }
     function closeModal() { document.getElementById('legalModal').style.display = 'none'; }
