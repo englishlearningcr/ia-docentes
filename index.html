@@ -1,93 +1,260 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA para Docentes - Allan Alfaro</title>
-    <style>
-        :root { --bg: #0b111a; --card: #161f2c; --orange: #e67e22; --blue-light: #3182ce; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); color: white; margin: 0; line-height: 1.6; }
-        .container { max-width: 850px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; padding: 40px 0; }
-        .badge { background: var(--orange); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; }
-        
-        .recom-box { background: var(--card); border-top: 4px solid var(--orange); padding: 30px; text-align: center; border-radius: 10px; margin: 30px 0; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
-        .card { background: var(--card); padding: 20px; border-radius: 10px; border-top: 3px solid var(--orange); text-align: center; }
-        
-        .trust-note { background: #eef7ff; color: #1a2a3a; padding: 20px; border-left: 6px solid var(--orange); border-radius: 5px; margin: 30px 0; font-weight: 500; }
-        
-        .pricing { text-align: center; margin: 50px 0; }
-        .cta-btn { display: inline-block; background: var(--orange); color: white; padding: 20px 45px; text-decoration: none; font-weight: bold; border-radius: 10px; font-size: 1.4rem; text-transform: uppercase; box-shadow: 0 5px 15px rgba(230,126,34,0.4); }
-        
-        /* SECCIÓN DE GARANTÍA Y HOTMART (LO QUE FALTABA) */
-        .guarantee-section { background: #1a2a3a; padding: 40px 20px; border-radius: 15px; text-align: center; margin: 40px 0; border: 1px solid #2d3748; }
-        .guarantee-flex { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .guarantee-img { width: 120px; }
-        .hotmart-secure { margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; display: inline-block; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso IA para Docentes</title>
 
-        footer { text-align: center; padding: 40px 0; border-top: 1px solid #2d3748; }
-        .f-link { color: var(--orange); text-decoration: underline; font-weight: bold; margin: 0 10px; }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-    </style>
+<style>
+:root{
+  --bg:#0f1f33;
+  --card:#223247;
+  --accent:#f28c28;
+  --text:#ffffff;
+  --muted:#c7d1e0;
+  --green:#25D366;
+  --blue:#3b82f6;
+}
+
+*{box-sizing:border-box;font-family: "Segoe UI", sans-serif;}
+
+body{
+  margin:0;
+  background:linear-gradient(180deg,#122640,#0f1f33);
+  color:var(--text);
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+  text-align:center;
+}
+
+/* HERO */
+.badge{
+  display:inline-block;
+  background:var(--accent);
+  padding:8px 20px;
+  border-radius:30px;
+  font-weight:700;
+  margin-bottom:30px;
+}
+
+h1{
+  font-size:3.2rem;
+  margin:10px 0;
+}
+
+.highlight{
+  color:var(--accent);
+  font-size:2.2rem;
+  font-weight:700;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:1.2rem;
+  margin-top:10px;
+}
+
+/* CARD */
+.card{
+  background:linear-gradient(180deg,#2a3c54,#223247);
+  padding:40px;
+  border-radius:20px;
+  margin-top:60px;
+}
+
+/* FEATURES */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.feature{
+  background:#2a3c54;
+  padding:25px;
+  border-radius:15px;
+  text-align:left;
+}
+
+.feature h3{
+  color:var(--accent);
+}
+
+.feature p{
+  color:var(--muted);
+}
+
+/* BONUS */
+.bonus{
+  margin-top:70px;
+  padding:40px;
+  border:3px dashed var(--accent);
+  border-radius:20px;
+}
+
+.bonus h2{
+  color:var(--accent);
+}
+
+/* BUTTONS */
+.btns{
+  margin-top:30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+.btn{
+  padding:15px 25px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  color:white;
+}
+
+.whatsapp{background:var(--green);}
+.email{background:var(--blue);}
+.buy{
+  background:var(--accent);
+  font-size:1.2rem;
+  padding:22px 35px;
+  display:inline-block;
+  margin-top:30px;
+}
+
+/* PRICE */
+.price{
+  margin-top:80px;
+}
+
+.old{
+  text-decoration:line-through;
+  opacity:0.5;
+}
+
+.new{
+  font-size:3rem;
+  font-weight:800;
+}
+
+/* GUARANTEE */
+.guarantee{
+  margin-top:40px;
+  background:#223247;
+  padding:25px;
+  border-radius:15px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+footer{
+  margin-top:80px;
+  padding:40px 0;
+  border-top:1px solid #2a3c54;
+}
+
+footer a{
+  color:var(--accent);
+  margin:0 15px;
+  text-decoration:none;
+}
+
+@media(max-width:768px){
+  h1{font-size:2.3rem}
+  .highlight{font-size:1.6rem}
+}
+</style>
 </head>
+
 <body>
+
 <div class="container">
-    <header>
-        <span class="badge">CONTENIDO PARA DOCENTES</span>
-        <h1 style="font-size: 2.5rem; margin: 10px 0;">DOCENTE...</h1>
-        <h2 style="color: var(--orange);">¡Recupera tus fines de semana con IA!</h2>
-    </header>
 
-    <div class="recom-box">
-        <p style="color: #a0aec0; margin:0;">RECOMENDADO POR:</p>
-        <h2 style="margin: 5px 0;">Prof. Allan Alfaro (INA Costa Rica)</h2>
-        <p>Más de 20 años de experiencia técnica y pedagógica.</p>
+  <div class="badge">CONTENIDO EXCLUSIVO PARA DOCENTES</div>
+
+  <h1>DOCENTE...</h1>
+  <div class="highlight">¡Recupera tus fines de semana con IA Aplicada!</div>
+  <p class="subtitle">
+    Automatiza tus planeamientos en minutos y vuelve a disfrutar de tu tiempo libre.
+  </p>
+
+  <div class="card">
+    <p>Recomendado por:</p>
+    <h2 style="color:var(--accent)">Prof. Allan Alfaro (INA Costa Rica)</h2>
+    <p class="subtitle">
+      Especialista con más de 20 años de experiencia en docencia técnica e idiomas.
+    </p>
+  </div>
+
+  <div class="grid">
+    <div class="feature">
+      <h3>⚡ Planeación Instantánea</h3>
+      <p>Dominarás la IA para crear materiales didácticos de alta calidad en segundos.</p>
     </div>
 
-    <div class="grid">
-        <div class="card"><h3>⚡ Planeación</h3><p>Crea unidades didácticas en segundos.</p></div>
-        <div class="card"><h3>📄 Evaluación</h3><p>Automatiza rúbricas y tareas administrativas.</p></div>
+    <div class="feature">
+      <h3>📝 Evaluación Ágil</h3>
+      <p>Automatiza tareas administrativas y concéntrate en enseñar.</p>
     </div>
 
-    <div class="trust-note">
-        <strong>Nota del Prof. Allan:</strong> He elegido el método de <strong>Johnny Mora</strong> por ser el más práctico. Dale clic abajo para ir a su página oficial y empezar hoy mismo.
+    <div class="feature">
+      <h3>🎨 Recursos Visuales</h3>
+      <p>Crea recursos impactantes sin ser diseñador.</p>
     </div>
 
-    <div class="pricing">
-        <p style="text-decoration: line-through; color: #718096;">Precio regular: USD $97</p>
-        <div style="font-size: 3.5rem; font-weight: bold; margin-bottom: 20px;">Hoy: USD $49</div>
-        <a href="https://go.hotmart.com/H105205095M" class="cta-btn">¡SÍ, QUIERO EL CURSO + MI REGALO!</a>
+    <div class="feature">
+      <h3>🎯 Uso Práctico Real</h3>
+      <p>Aplica IA directamente en el aula para resolver problemas reales.</p>
     </div>
+  </div>
 
-    <div class="guarantee-section">
-        <div class="guarantee-flex">
-            <img src="https://static-media.hotmart.com/eb7779f067606362947d173685f7e44c.png" alt="Garantía 7 días" class="guarantee-img">
-            <div style="text-align: left; max-width: 400px;">
-                <h3 style="margin:0; color: #2ecc71;">¡7 DÍAS DE GARANTÍA!</h3>
-                <p style="font-size: 0.9rem; margin-top: 5px;">Probá el curso sin riesgos. Si no te gusta, pedís el reembolso total a Hotmart sin preguntas.</p>
-            </div>
-        </div>
-        <div class="hotmart-secure">
-            <p style="font-size: 0.8rem; margin:0;">🔒 Compra Segura y Encriptada por <strong>Hotmart®</strong></p>
-        </div>
+  <div class="bonus">
+    <span class="badge" style="background:#ef4444">🎁 INCLUYE REGALO EXCLUSIVO</span>
+    <h2>PDF con 50 Prompts listos para copiar y usar en tus clases.</h2>
+    <p>¿Cómo recibirlo? Adquiere tu curso y envíame tu comprobante:</p>
+
+    <div class="btns">
+      https://wa.me/50672758657?text=Hola%20Allan,%20acabo%20de%20hacer%20el%20pago%20del%20curso,%20por%20favor%20dame%20el%20pdf%20de%20obsequio.
+         WhatsApp
+      </a>
+
+      aalfarotcr44@gmail.com
+        Enviar por Email
+      </a>
     </div>
+  </div>
 
-    <div style="text-align: center; margin-bottom: 40px;">
-        <a href="https://wa.me/50672758657?text=Hola%20Allan%20acabo%20de%20hacer%20el%20pago%20del%20curso%20te%20env%C3%ADo%20el%20comprobante%20para%20mi%20bono%20del%20pdf" 
-           style="color: #25d366; text-decoration: none; font-weight: bold; border: 2px solid #25d366; padding: 10px 20px; border-radius: 8px;">
-           📱 Enviar comprobante para mi BONO PDF
-        </a>
-    </div>
+  <div class="price">
+    <p class="old">Precio regular: USD $97.00</p>
+    <p class="new">Hoy: USD $49.00*</p>
+    <p class="subtitle">(*Pago seguro procesado por Hotmart)</p>
 
-    <footer>
-        <div style="margin-bottom: 10px;">
-            <a href="privacidad.html" class="f-link">Privacidad</a> | 
-            <a href="terminos.html" class="f-link">Términos</a> | 
-            <a href="contacto.html" class="f-link">Contacto</a>
-        </div>
-        <p style="font-size: 0.8rem; color: #4a5568;">&copy; 2026 Alajuela, Costa Rica. Email: aalfarotcr44@gmail.com</p>
-    </footer>
+    https://go.hotmart.com/H105205095M
+      ¡SÍ, QUIERO EL CURSO + MI REGALO!
+    </a>
+  </div>
+
+  <div class="guarantee">
+    🔒 Compra 100% segura vía Hotmart<br><br>
+    ⭐ Garantía incondicional de 7 días
+  </div>
+
+  <footer>
+    #Privacidad</a>
+    #Términos</a>
+    #Contacto</a>
+    <p style="margin-top:20px;color:#94a3b8">
+      © 2026 Recommended by Allan Alfaro | Alajuela, Costa Rica
+    </p>
+  </footer>
+
 </div>
+
 </body>
 </html>
