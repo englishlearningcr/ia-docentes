@@ -7,7 +7,7 @@
     <style>
         body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #1e293b; color: white; line-height: 1.6; text-align: center; }
         
-        /* HEADINGS IMPACTANTES Y CENTRADOS */
+        /* HEADINGS IMPACTANTES */
         .hero { background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); padding: 100px 20px; text-align: center; border-bottom: 8px solid #e67e22; border-radius: 0 0 60px 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         h1 { font-size: 5em; line-height: 1; margin: 25px 0; font-weight: 900; letter-spacing: -3px; text-transform: uppercase; }
         .sub-heading { font-size: 3em; color: #e67e22; font-weight: 800; margin-bottom: 30px; display: block; line-height: 1.1; }
@@ -15,31 +15,48 @@
         .container { max-width: 950px; margin: auto; padding: 25px; text-align: center; }
         .tag { background:#e67e22; padding:12px 30px; border-radius:50px; font-size:1.1em; font-weight:bold; text-transform: uppercase; box-shadow: 0 4px 15px rgba(230,126,34,0.3); }
 
-        /* BENEFICIOS (DESCRIPCIONES) CENTRADOS */
+        /* BENEFICIOS */
         .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 60px 0; text-align: center; justify-items: center; }
         .benefit-card { background: rgba(255,255,255,0.06); padding: 35px; border-radius: 20px; border-top: 10px solid #e67e22; transition: 0.3s; width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .benefit-card:hover { transform: scale(1.02); background: rgba(255,255,255,0.09); }
         .benefit-card strong { font-size: 1.4em; color: #e67e22; display: block; margin-bottom: 12px; }
 
-        /* SECCIÓN DEL REGALO / BONO CENTRADO */
-        .bonus-box { background: rgba(255, 251, 235, 0.04); border: 4px dashed #e67e22; padding: 50px; border-radius: 35px; margin: 60px 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .bonus-box h3 { font-size: 2.5em; color: #e67e22; margin-top: 0; line-height: 1.2; }
+        /* SECCIÓN DEL REGALO / BONO */
+        .bonus-box { background: rgba(255, 251, 235, 0.04); border: 4px dashed #e67e22; padding: 50px; border-radius: 35px; margin: 60px 0; text-align: center; }
+        .bonus-box h3 { font-size: 2.5em; color: #e67e22; margin-top: 0; }
 
-        /* BOTÓN DE COMPRA Y PRECIO CENTRADO */
+        /* --- CORRECCIÓN DEL BOTÓN (ESTILO SEGUNDA FOTO) --- */
         .cta-section { text-align: center; padding: 70px 0; border-top: 2px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; }
         .price { font-size: 4.5em; font-weight: 900; margin: 20px 0; }
-        .btn-main { display: block; background: #e67e22; color: white; padding: 35px; font-size: 2.2em; font-weight: 900; text-decoration: none; border-radius: 25px; box-shadow: 0 20px 40px rgba(230, 126, 34, 0.5); transition: 0.4s; width: 100%; max-width: 600px; }
-        .btn-main:hover { transform: translateY(-8px); background: #f39c12; }
-
-        /* SECCIÓN INSTRUCTOR CENTRADA TOTAL */
-        .instructor { background: rgba(255,255,255,0.05); border-top: 10px solid #e67e22; padding: 45px; border-radius: 25px; margin-top: 70px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; }
         
-        /* FOOTER LEGAL CENTRADO CON LINKS NARANJAS */
-        .footer { text-align: center; padding: 100px 20px; font-size: 0.95em; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .footer a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; border-bottom: 2px solid #e67e22; padding-bottom: 4px; transition: 0.3s; }
-        .footer a:hover { color: #e67e22; border-bottom-color: white; }
+        .btn-main { 
+            display: inline-block; /* Importante para que no ocupe todo el ancho */
+            background: #e67e22; 
+            color: white; 
+            padding: 25px 60px; /* Más padding a los lados para que sea ancho */
+            font-size: 1.8em; /* Tamaño de letra justo para UNA sola línea */
+            font-weight: 900; 
+            text-decoration: none; 
+            border-radius: 20px; /* Bordes redondeados como en la foto */
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.4); 
+            transition: 0.3s; 
+            white-space: nowrap; /* Fuerza a que el texto NO se quiebre */
+            text-transform: uppercase; /* Todo en mayúsculas */
+        }
+        .btn-main:hover { transform: translateY(-5px); background: #d35400; box-shadow: 0 15px 30px rgba(230, 126, 34, 0.5); }
+        /* -------------------------------------------------- */
 
-        @media (max-width: 768px) { h1 { font-size: 3.2em; } .sub-heading { font-size: 2em; } .benefits-grid { grid-template-columns: 1fr; } .price { font-size: 3em; } .benefit-card { max-width: 100%; } }
+        .instructor { background: rgba(255,255,255,0.05); border-top: 10px solid #e67e22; padding: 45px; border-radius: 25px; margin-top: 70px; text-align: center; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; }
+        
+        .footer { text-align: center; padding: 100px 20px; font-size: 0.95em; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer a { color: white; margin: 0 20px; text-decoration: none; font-weight: bold; border-bottom: 2px solid #e67e22; padding-bottom: 4px; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 3em; } 
+            .sub-heading { font-size: 2em; } 
+            .benefits-grid { grid-template-columns: 1fr; } 
+            .price { font-size: 3em; } 
+            .btn-main { font-size: 1.4em; padding: 20px 30px; } /* Ajuste para móvil */
+        }
     </style>
 </head>
 <body>
@@ -85,16 +102,16 @@
             
             <div style="display: flex; justify-content: center; gap: 25px; margin-top: 35px; flex-wrap: wrap;">
                 <a href="https://wa.me/50672758657?text=Hola%20Allan,%20ya%20compre%20el%20curso%20de%20IA.%20Me%20das%20mi%20bono%20de%20los%2050%20prompts?" 
-                   style="background: #25d366; color: white; padding: 18px 35px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.3em; box-shadow: 0 10px 20px rgba(37,211,102,0.3);" target="_blank">📲 WhatsApp</a>
+                   style="background: #25d366; color: white; padding: 18px 35px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.3em;" target="_blank">📲 WhatsApp</a>
                 <a href="mailto:aalfarotcr44@gmail.com?subject=Reclamo de Bono - Curso IA" 
-                   style="background: #3b82f6; color: white; padding: 18px 35px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.3em; box-shadow: 0 10px 20px rgba(59,130,246,0.3);">✉️ Enviar por Email</a>
+                   style="background: #3b82f6; color: white; padding: 18px 35px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.3em;">✉️ Enviar por Email</a>
             </div>
         </div>
 
         <div class="cta-section">
             <p style="text-decoration: line-through; opacity: 0.5; font-size: 1.6em; margin-bottom: 0;">Precio regular: USD $97.00</p>
             <div class="price">Hoy: USD $49.00*</div>
-            <p style="margin-bottom: 45px; opacity: 0.8; font-size: 1.1em;">(*Pago seguro en tu moneda local procesado por Hotmart)</p>
+            <p style="margin-bottom: 45px; opacity: 0.8; font-size: 1.1em;">(*Pago seguro procesado por Hotmart)</p>
             
             <a href="https://go.hotmart.com/H105205095M" class="btn-main">¡SÍ, QUIERO EL CURSO + MI REGALO!</a>
             
@@ -111,9 +128,6 @@
                 <a href="contacto.html">Contacto</a>
             </p>
             <p style="margin-top: 30px;">© 2026 Recommended by Allan Alfaro | Alajuela, Costa Rica</p>
-            <p style="font-size: 0.8em; margin-top: 40px; line-height: 1.4; opacity: 0.5;">
-                Aviso: Este sitio web no es parte de Google, Inc. Además, este sitio NO está respaldado por Google de ninguna manera. Google es una marca registrada de Google, Inc. Los resultados varían según el compromiso de cada estudiante.
-            </p>
         </div>
     </div>
 
