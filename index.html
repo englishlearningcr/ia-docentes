@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IA para Docentes | Recomendación Prof. Allan Alfaro (INA)</title>
+  <title>Recupera tus Fines de Semana | IA para Docentes</title>
   <style>
     :root {
       --bg-1: #0f2747; --bg-2: #173b73; --bg-3: #0f766e;
@@ -13,7 +13,7 @@
     }
     * { box-sizing: border-box; }
     body {
-      margin: 0; font-family: Arial, sans-serif;
+      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: var(--white); background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 58%, var(--bg-3) 100%);
       min-height: 100vh; padding: 20px; display: flex; align-items: center; justify-content: center;
     }
@@ -22,24 +22,23 @@
     .top-strip { height: 6px; background: linear-gradient(90deg, #f97316, #14b8a6); }
     .content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; padding: 40px; align-items: start; }
     .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: rgba(249,115,22,0.2); border: 1px solid var(--accent); font-size: 0.85rem; font-weight: 700; color: #fb923c; margin-bottom: 20px; }
-    h1 { margin: 0 0 20px; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; }
+    h1 { margin: 0 0 15px; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; }
+    .subheadline { font-size: 1.1rem; line-height: 1.5; margin-bottom: 25px; opacity: 0.9; color: #e2e8f0; }
     .author-box { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 4px solid var(--accent); }
     .author-name { font-weight: 800; color: var(--accent); font-size: 1.1rem; }
-    .bullets { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 15px; }
+    .bullets { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 12px; }
     .bullets li { display: flex; gap: 12px; font-size: 1.05rem; }
     .check { color: #14b8a6; font-weight: 900; }
     .price-box { margin-bottom: 25px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
     .old-price { text-decoration: line-through; opacity: 0.6; font-size: 1rem; }
     .new-price { font-size: 2.2rem; font-weight: 900; color: #fff; display: block; margin-top: 5px;}
     .cta { display: block; text-align: center; padding: 20px; border-radius: 18px; background: linear-gradient(135deg, var(--accent), #ea580c); color: white; text-decoration: none; font-size: 1.2rem; font-weight: 900; box-shadow: 0 10px 30px rgba(249,115,22,0.4); transition: 0.2s; cursor: pointer; }
+    .cta:hover { transform: scale(1.02); filter: brightness(1.1); }
     .summary { background: white; color: var(--text); padding: 30px; border-radius: 24px; }
     .summary h2 { margin-top: 0; font-size: 1.3rem; color: var(--bg-1); }
     .summary-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
     .summary-list li { padding: 12px; background: #f1f5f9; border-radius: 10px; font-size: 0.9rem; font-weight: 600; color: #334155; border-left: 3px solid #14b8a6; }
-    
-    /* ESTILO PARA EL BONO */
-    .bonus-tag { margin-top: 15px; background: #fff7ed; border: 1px dashed #f97316; padding: 12px; border-radius: 10px; color: #9a3412; font-size: 0.85rem; font-weight: 700; }
-
+    .bonus-tag { margin-top: 15px; background: #fff7ed; border: 1px dashed #f97316; padding: 15px; border-radius: 10px; color: #9a3412; font-size: 0.85rem; font-weight: 800; line-height: 1.4; }
     .footer { padding: 20px; text-align: center; font-size: 0.8rem; opacity: 0.7; border-top: 1px solid var(--card-border); }
     .footer a { color: white; margin: 0 10px; text-decoration: none; cursor: pointer; }
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; padding: 20px; overflow-y: auto; color: #334155; }
@@ -55,7 +54,8 @@
       <div class="content">
         <div>
           <div class="eyebrow">CONTENIDO EXCLUSIVO PARA DOCENTES</div>
-          <h1>Automatiza tus clases y ahorra tiempo real con IA</h1>
+          <h1>Recupera tus fines de semana con IA Aplicada</h1>
+          <p class="subheadline">Aprende a automatizar tus planeamientos y tareas administrativas para volver a disfrutar de tu tiempo libre.</p>
           <div class="author-box">
             <div class="author-info">
               <p>Recomendado por:</p>
@@ -74,6 +74,7 @@
             <p style="color: #fb923c; font-weight: 800; margin: 5px 0;">(Aprox. $1,000 Pesos Mexicanos)</p>
           </div>
           <a href="https://go.hotmart.com/H105205095M?ap=dca8" class="cta">¡ACCEDER POR USD $49!</a>
+          <p style="text-align:center; font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">*El precio final depende de impuestos locales de México.</p>
         </div>
         <aside class="summary">
           <h2>¿Qué vas a lograr?</h2>
@@ -93,6 +94,7 @@
       </div>
       <footer class="footer">
         <a onclick="showModal('privacidad')">Privacidad</a> | <a onclick="showModal('terminos')">Términos</a> | <a onclick="showModal('contacto')">Contacto</a>
+        <p style="margin-top:15px;">Este sitio no es parte de Google ni Meta. Página de afiliado independiente.</p>
       </footer>
     </section>
   </main>
